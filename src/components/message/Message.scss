@@ -1,0 +1,37 @@
+.message{
+	width: 100%;
+	border: 3px solid;
+	padding: 7px;
+	border-radius: 15px;
+	color: #000000;
+	text-align: center;
+	display: flex;
+}
+
+.error{
+	background-color: rgb(255, 133, 133);
+	border-color: red;
+}
+.success{
+	background-color: rgb(119, 214, 119);
+	border-color: green;
+}
+.information{
+	background-color: rgb(145, 145, 255);
+	border-color: rgb(0, 0, 255);
+}
+
+.content{
+	flex: 5;
+}
+.close-icon{
+	width: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 5px;
+	img{
+		width: 100%;
+		height: auto;
+	}
+}
