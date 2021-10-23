@@ -1,9 +1,15 @@
 import { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import MessageContext from "../contexts/MessageContext";
 
 function Login() {
 	const [pushMessage, dropMessage] = useContext(MessageContext);
+	const history = useHistory();
+
+	if(localStorage.getItem('refreshToken')!==null){
+		history.push('/dashboard/todos');
+	}
 
 	const signIn = async event => {
 		event.preventDefault();
@@ -15,6 +21,8 @@ function Login() {
 
 			localStorage.setItem('authToken', response.data.authToken);
 			localStorage.setItem('refreshToken', response.data.refreshToken);
+
+			history.push('/dashboard');
 		} catch (error) {
 			pushMessage({
 				type: 'error', 

@@ -6,10 +6,6 @@ import closeIcon from "../../assets/x-close.png";
 function Message(props) {
 	const [pushMessage, dropMessage] = useContext(MessageContext);
 
-	useEffect(() => {
-		console.log(props);
-	}, []);
-
 	return (
 		<div className={`message ${props.message.type}`}>
 			<div className="content">

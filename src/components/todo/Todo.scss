@@ -1,0 +1,31 @@
+.todo{
+	background-color: var(--bg-secondary);
+	border-radius: 10px;
+	padding: 5px;
+	display: flex;
+	transition: transform 0.45s;
+	&.done{
+		transform: scale(0.9);
+	}
+}
+
+.check-icon{
+	opacity: 0.55;
+	width: 25px;
+	height: 25px;
+	&:hover, &.done{
+		opacity: 1;
+	}
+}
+
+.edit, .check-done{
+	flex: 1;
+	text-align: center;
+}
+
+.title{
+	flex: 4;
+	&.done{
+		text-decoration: 3px line-through green;
+	}
+}
