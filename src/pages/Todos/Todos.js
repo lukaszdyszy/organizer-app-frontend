@@ -24,6 +24,7 @@ function Todos() {
 		});
 	}
 
+
 	useEffect(() => {
 		getTodos();
 	}, []);
@@ -35,8 +36,10 @@ function Todos() {
 			</header>
 			<main>
 				{todoList.map(todo => {
-					return <Todo todo={todo}/>
+					return <Todo todo={todo} onDelete={getTodos}/>
 				})}
+
+
 			</main>
 		</div>
 	)

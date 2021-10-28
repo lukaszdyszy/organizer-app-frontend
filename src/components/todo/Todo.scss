@@ -2,6 +2,7 @@
 	background-color: var(--bg-secondary);
 	border-radius: 10px;
 	padding: 5px;
+	margin-bottom: 10px;
 	display: flex;
 	transition: transform 0.45s;
 	&.done{
@@ -21,6 +22,7 @@
 .edit, .check-done{
 	flex: 1;
 	text-align: center;
+	position: relative;
 }
 
 .title{
