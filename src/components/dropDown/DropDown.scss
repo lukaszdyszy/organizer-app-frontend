@@ -3,9 +3,14 @@
 }
 
 .drop-down{
-	background-color: var(--bg-secondary);
+	background-color: var(--bg-popups);
 	position: absolute;
 	z-index: 1000;
-	padding: 5px;
+	padding: 10px;
 	transition: transform .25s;
+	border: 3px solid var(--border);
+}
+
+.delete-btn{
+	background-color: red;
 }

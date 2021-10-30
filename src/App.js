@@ -32,7 +32,7 @@ function App() {
 					{
 						messages.map(msg => {
 							return (
-								<Message message={msg}/>
+								<Message key={msg.id} message={msg}/>
 							)
 						})
 					}

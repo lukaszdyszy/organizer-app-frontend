@@ -8,7 +8,7 @@ function Login() {
 	const history = useHistory();
 
 	if(localStorage.getItem('refreshToken')!==null){
-		history.push('/dashboard/todos');
+		history.push('/dashboard');
 	}
 
 	const signIn = async event => {
@@ -24,10 +24,12 @@ function Login() {
 
 			history.push('/dashboard');
 		} catch (error) {
-			pushMessage({
-				type: 'error', 
-				content: error.response.data.message
-			});
+			if(error.response){
+				pushMessage({
+					type: 'error', 
+					content: error.response.data.message
+				});
+			}
 		}
 	}
 

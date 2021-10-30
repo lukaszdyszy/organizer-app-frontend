@@ -34,9 +34,7 @@ function DropDown(props) {
 	return (
 		<div className="drop-down-container">
 			<div onClick={toggleOpen}>...</div>
-			<div 
-			className="drop-down" 
-			style={dropDownStyle}>
+			<div className="drop-down" style={dropDownStyle} onClick={toggleOpen}>
 				{props.children}
 			</div>
 		</div>

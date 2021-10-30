@@ -1,12 +1,10 @@
 import { Route, useHistory } from "react-router-dom";
 import axios from "axios";
 import Sidebar from "../../components/sidebar/Sidebar";
-
 import Todos from "../Todos/Todos";
-
 import './Dashboard.scss';
 
-function Dashboard() {
+function Dashboard(props) {
 	const history = useHistory();
 	
 	if(!localStorage.getItem('refreshToken')){
@@ -16,6 +14,9 @@ function Dashboard() {
 	return (
 		<div className="page">
 			<Sidebar />
+			<Route path="/dashboard" exact>
+				<Todos />
+			</Route>
 			<Route path="/dashboard/todos" exact>
 				<Todos />
 			</Route>

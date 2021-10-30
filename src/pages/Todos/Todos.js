@@ -2,6 +2,8 @@ import { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import Todo from "../../components/todo/Todo";
 import MessageContext from "../../contexts/MessageContext";
+import "./Todos.scss";
+import refresh from "../../helpers/refresh";
 
 function Todos() {
 	const [pushMessage, dropMessage] = useContext(MessageContext);
@@ -24,6 +26,35 @@ function Todos() {
 		});
 	}
 
+	const addTodo = e => {
+		e.preventDefault();
+		axios({
+			method: 'post',
+			url: `${process.env.REACT_APP_API}/todos`,
+			headers: {
+				'authorization': `Bearer ${localStorage.getItem('authToken')}`
+			},
+			data: {
+				title: e.target.title.value
+			}
+		}).then(response => {
+			e.target.reset();
+			getTodos();
+		}).catch(error => {
+			console.log(error);
+			if(error.response.status===403){
+				try {
+					refresh();
+					addTodo();
+				} catch (err) {
+					pushMessage({
+						type: 'error',
+						content: err.response.data.message
+					});
+				}
+			}
+		});
+	}
 
 	useEffect(() => {
 		getTodos();
@@ -36,10 +67,12 @@ function Todos() {
 			</header>
 			<main>
 				{todoList.map(todo => {
-					return <Todo todo={todo} onDelete={getTodos}/>
+					return <Todo key={todo.id_todo} todo={todo} update={getTodos}/>
 				})}
 
-
+				<form className="add-todo-form" onSubmit={addTodo}>
+					<input type="text" id="title" placeholder="New todo..."/>
+				</form>
 			</main>
 		</div>
 	)

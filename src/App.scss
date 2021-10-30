@@ -23,6 +23,7 @@ a{
 .theme-dark{
 	--bg-main: #404552;
 	--bg-secondary: #4b5162;
+	--bg-popups: #292d36;
 	--bg-ui: #5294e2;
 	--font: #D8DEE9;
 	--border: #000000;
@@ -32,6 +33,7 @@ a{
 .theme-light{
 	--bg-main: #E7EAEB;
 	--bg-secondary: #EDF0F1;
+	--bg-popups: #c8cbcc;
 	--bg-ui: #5294e2;
 	--font: #000000;
 	--border: #ffffff;
@@ -40,6 +42,12 @@ a{
 h1{
 	margin: 0;
 	font-size: 2rem;
+	text-align: center;
+	padding: 10px;
+}
+h2{
+	margin: 0;
+	font-size: 1.5rem;
 	text-align: center;
 	padding: 10px;
 }
@@ -72,9 +80,13 @@ input[type=text], input[type=password]{
 		outline: none;
 	}
 }
+
+button {
+	border: none;
+}
+
 .btn{
 	background-color: var(--bg-ui);
-	border: none;
 	border-radius: 15px;
 	font-size: 1.25rem;
 	width: 100%;
@@ -88,7 +100,7 @@ input[type=text], input[type=password]{
 	position: fixed;
 	width: 100%;
 	padding: 10px;
-	top: 0;
+	bottom: 0;
 	left: 0;
 	z-index: 1000;
 }

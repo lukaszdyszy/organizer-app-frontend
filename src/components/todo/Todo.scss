@@ -28,6 +28,22 @@
 .title{
 	flex: 4;
 	&.done{
-		text-decoration: 3px line-through green;
+		input{
+			text-decoration: 3px line-through green;
+		}
+	}
+	input{
+		border: none;
+		margin: 0;
+	}
+}
+
+.edit-option{
+	display: flex;
+	align-items: center;
+	img{
+		width: 16px;
+		height: 16px;
+		margin-right: 5px;
 	}
 }
