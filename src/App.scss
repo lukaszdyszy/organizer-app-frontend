@@ -104,3 +104,24 @@ button {
 	left: 0;
 	z-index: 1000;
 }
+
+.settings{
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+}
+.settings-option{
+	// font-size: 0.9em;
+	ul{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		text-align: right;
+		li{
+			padding: 3px 0 3px 10px;
+			&.active{
+				text-decoration: green 3px underline;
+			}
+		}
+	}
+}

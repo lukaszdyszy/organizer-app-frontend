@@ -5,10 +5,13 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MessageContext from "./contexts/MessageContext";
 import Message from "./components/message/Message";
+import DropDown from "./components/dropDown/DropDown";
+import GearIcon from "./assets/icon-gear-32x32.png";
 
 function App() {
 	const [messages, updateMessages] = useState([]);
 	const [id, incrementId] = useState(0);
+	const [theme, setTheme] = useState('dark');
 
 	const pushMessage = msg => {
 		msg.id = id;
@@ -26,7 +29,28 @@ function App() {
 	}
 
 	return (
-		<div className="App theme-dark">
+		<div className={`App theme-${theme}`}>
+			<div className="settings">
+				<DropDown dirX="left" dirY="top" icon={GearIcon}>
+					<div className="settings-option">
+						Theme
+						<ul>
+							<li 
+								className={theme==='dark' ? 'active' : ''} 
+								onClick={() => {setTheme('dark')}}
+							>
+								dark
+							</li>
+							<li 
+								className={theme==='light' ? 'active' : ''} 
+								onClick={() => {setTheme('light')}}
+							>
+								light
+							</li>
+						</ul>
+					</div>
+				</DropDown>
+			</div>
 			<MessageContext.Provider value={[pushMessage, dropMessage]}>
 				<div className="messages">
 					{
